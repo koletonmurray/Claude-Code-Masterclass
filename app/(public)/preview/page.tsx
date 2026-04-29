@@ -1,7 +1,8 @@
 // preview page for newly created UI components
 
-import SkeletonCard from "@/components/SkeletonCard"
-import Avatar from "@/components/Avatar"
+import SkeletonCard from "@/components/SkeletonCard";
+import Avatar from "@/components/Avatar";
+import AuthForm from "@/components/AuthForm";
 
 export default function PreviewPage() {
   return (
@@ -22,6 +23,12 @@ export default function PreviewPage() {
         <SkeletonCard />
         <SkeletonCard />
       </div>
+
+      <h3 className="mt-8 mb-3">AuthForm — login</h3>
+      <AuthForm mode="login" />
+
+      <h3 className="mt-8 mb-3">AuthForm — signup</h3>
+      <AuthForm mode="signup" />
     </div>
-  )
+  );
 }

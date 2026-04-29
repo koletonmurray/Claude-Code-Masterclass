@@ -16,21 +16,6 @@ npm run test     # run all tests (Vitest)
 npx vitest run tests/components/Navbar.test.tsx  # run a single test file
 ```
 
-## Slash Commands
-
-Project-specific slash commands live in `.claude/commands/`:
-
-- `/commit-message` — analyzes staged changes and proposes an emoji commit message; waits for approval before committing
-- `/component <description>` — TDD scaffold: writes tests first, then creates the component, iterates until tests pass, adds to preview page
-- `/spec <idea>` — checks for a clean working tree, creates `_specs/<slug>.md` from a short idea, and switches to a new `feat/<slug>` branch
-
-## Spec & Plan Workflow
-
-Feature work follows a three-step process:
-1. `/spec <idea>` — creates a spec in `_specs/` and a feature branch
-2. Plan mode (`plan the feature described in this spec`) — writes an implementation plan to `_plans/<slug>.md`
-3. Implementation — execute the plan
-
 ## Architecture
 
 **Pocket Heist** is a Next.js 16 app (React 19, TypeScript, Tailwind CSS v4) with no backend yet — all data is currently static/mocked.
@@ -55,7 +40,7 @@ Tailwind CSS v4 is configured via PostCSS (`postcss.config.mjs`). Custom theme t
 | `success` / `error` | #05DF72 / #FF6467 |
 | `heading` / `body` | white / #99A1AF |
 
-Shared layout utilities (`.page-content`, `.center-content`, `.form-title`, `.btn`) are defined in `globals.css`.
+Shared layout utilities (`.page-content`, `.center-content`, `.form-title`) are also defined in `globals.css`.
 
 ### Components
 
@@ -65,28 +50,12 @@ Each component lives in its own directory under `components/` and must include t
 - `ComponentName.module.css` — scoped styles (start with `@reference "../../app/globals.css";` to access theme tokens)
 - `index.ts` — re-exports the default: `export { default } from "./ComponentName"`
 
-Import components via the directory name: `import AuthForm from "@/components/AuthForm"`.
+Import components via the directory name: `import SkeletonCard from "@/components/SkeletonCard"`.
 
 When creating a new component, add it to `app/(public)/preview/page.tsx` so it can be visually reviewed at `/preview`.
 
 Prefer CSS modules over inline Tailwind classes when an element has more than one style. Move multi-class styling into the component's `.module.css` file using `@apply`. Single global utility classes (e.g. `btn`) may stay inline.
 
-Components that use React hooks (`useState`, `useEffect`, etc.) must include `"use client"` as the first line.
-
-### Hooks (PostToolUse)
-
-A Prettier hook runs automatically after every `Write` or `Edit` on `.ts`/`.tsx` files. **Always `Read` a file before making a second edit to it** — the formatter may have changed whitespace or semicolons since your last write.
-
 ### Testing
 
 Tests live in `tests/components/` and use Vitest + Testing Library with jsdom. The `@/` path alias resolves to the repo root (same as in app code).
-
-For interaction tests, use `@testing-library/user-event` (already installed):
-
-```ts
-const user = userEvent.setup();
-await user.type(screen.getByLabelText("Email"), "test@example.com");
-await user.click(screen.getByRole("button", { name: "Log In" }));
-```
-
-Use exact label strings with `getByLabelText` when a component also has `aria-label` attributes on buttons — regex matching can accidentally match both.

@@ -18,9 +18,11 @@ Your job will be to turn the user input above into:
 Then save the spec file to disk and print a short summary of what you did.
 
 ## Step 1. Check the current branch
+
 Check the current Git branch, and abort this entire process if there are any uncommitted, unstaged, or untracked files in the working directory. Tell the user to commit or stash changes before proceeding, and DO NOT GO ANY FURTHER.
 
 ## Step 2. Parse the arguments
+
 From `$ARGUMENTS`, extract:
 
 1. `feature_title`  
@@ -46,12 +48,15 @@ From `$ARGUMENTS`, extract:
 If you cannot infer a sensible `feature_title` and `feature_slug`, ask the user to clarify instead of guessing.
 
 ## Step 3. Switch to a new Git branch
+
 Before making any content, switch to a new Git branch using the `branch_name` derived from the `$ARGUMENTS`. If the branch name is already taken, then append a version number to it: e.g. `feat/card-component-01`
 
 ## Step 4. Draft the spec content
-Create a markdown spec document that Plan mode can use directly and save it in the _specs folder using the `feature_slug`. Use the exact structure as defined in the spec template file here: @_specs/template.md. Do not add technical implementation details such as code examples.
+
+Create a markdown spec document that Plan mode can use directly and save it in the _specs folder using the `feature_slug`. Use the exact structure as defined in the spec template file here: @_specs/template.md. Leave out N/A fields. Do not add technical implementation details such as code examples.
 
 ## Step 5. Final output to the user
+
 After the file is saved, respond to the user with a short summary in this exact format:
 
 Branch: <branch_name>

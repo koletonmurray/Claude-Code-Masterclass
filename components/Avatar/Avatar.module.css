@@ -1,0 +1,5 @@
+@reference "../../app/globals.css";
+
+.avatar {
+  @apply size-10 rounded-full bg-primary text-dark flex items-center justify-center text-sm font-bold select-none;
+}

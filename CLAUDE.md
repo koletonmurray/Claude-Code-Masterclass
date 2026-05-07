@@ -55,7 +55,7 @@ Tailwind CSS v4 is configured via PostCSS (`postcss.config.mjs`). Custom theme t
 | `success` / `error` | #05DF72 / #FF6467 |
 | `heading` / `body` | white / #99A1AF |
 
-Shared layout utilities (`.page-content`, `.center-content`, `.form-title`, `.btn`) are defined in `globals.css`.
+Shared layout utilities (`.page-content`, `.center-content`, `.form-title`, `.btn`, `.btn-primary`) are defined in `globals.css`. `.btn-primary` is the gradient variant (primary → secondary) used for prominent CTAs.
 
 ### Components
 
@@ -90,3 +90,7 @@ await user.click(screen.getByRole("button", { name: "Log In" }));
 ```
 
 Use exact label strings with `getByLabelText` when a component also has `aria-label` attributes on buttons — regex matching can accidentally match both.
+
+## Checking Documentation
+
+- **important:** when implementing any lib/framework-specific features, ALWAYS check the appropriate lib/framework documentation using the Context7 mcp server before writing any code

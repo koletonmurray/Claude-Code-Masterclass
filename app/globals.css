@@ -3,8 +3,8 @@
 
 /* theme colours */
 @theme {
-  --color-primary: #C27AFF;
-  --color-secondary: #FB64B6;
+  --color-primary: #9810FA;
+  --color-secondary: #E60076;
   --color-dark: #030712;
   --color-light: #0A101D;
   --color-lighter: #101828;
@@ -47,4 +47,7 @@ svg.logo {
 /* buttons */
 .btn {
   @apply px-4 py-2 rounded-md text-sm font-semibold bg-primary text-dark transition-opacity hover:opacity-80;
+}
+.btn-primary {
+  @apply inline-flex items-center gap-2 px-6 py-3 rounded-2xl text-sm font-semibold bg-gradient-to-r from-primary to-secondary text-white transition-opacity hover:opacity-80;
 }

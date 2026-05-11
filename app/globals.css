@@ -17,6 +17,9 @@
 }
 
 /* typography */
+html {
+  scrollbar-gutter: stable;
+}
 body {
  @apply font-sans text-body bg-dark;
 }

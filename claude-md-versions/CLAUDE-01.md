@@ -18,14 +18,14 @@ npx vitest run tests/components/Navbar.test.tsx  # run a single test file
 
 ## Architecture
 
-**Pocket Heist** is a Next.js 16 app (React 19, TypeScript, Tailwind CSS v4) with no backend yet — all data is currently static/mocked.
+**Pocket Mission** is a Next.js 16 app (React 19, TypeScript, Tailwind CSS v4) with no backend yet — all data is currently static/mocked.
 
 ### Route groups
 
 Routes are split into two Next.js route groups, each with its own layout:
 
-- `app/(public)/` — unauthenticated pages (home splash, login, signup, preview). The home page (`/`) is intended as a redirect gate: logged-in users go to `/heists`, others to `/login`. Auth is not yet implemented.
-- `app/(dashboard)/` — authenticated heist management pages wrapped in a layout that renders `<Navbar>`. Contains `heists/` (list), `heists/create/`, and `heists/[id]/` (detail).
+- `app/(public)/` — unauthenticated pages (home splash, login, signup, preview). The home page (`/`) is intended as a redirect gate: logged-in users go to `/mission`, others to `/login`. Auth is not yet implemented.
+- `app/(dashboard)/` — authenticated mission management pages wrapped in a layout that renders `<Navbar>`. Contains `missions/` (list), `missions/create/`, and `missions/[id]/` (detail).
 
 ### Styling
 

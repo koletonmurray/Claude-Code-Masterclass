@@ -4,6 +4,14 @@ A mission management app built while working through the [Claude Code Masterclas
 
 This project started as a fork of [iamshaunjp/Claude-Code-Masterclass](https://github.com/iamshaunjp/Claude-Code-Masterclass) — the official starter for the course — and evolved into a full feature build using Claude Code as the primary development tool.
 
+**Live:** [claude-code-masterclass-mocha.vercel.app](https://claude-code-masterclass-mocha.vercel.app/)
+
+## Screenshots
+
+![Home](public/screenshots/home.png)
+
+![Mission Control](public/screenshots/mission-control.png)
+
 ## Stack
 
 - Next.js 16, React 19, TypeScript

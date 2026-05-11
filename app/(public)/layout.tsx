@@ -5,6 +5,7 @@ import { Clock8 } from "lucide-react";
 import { useRouter, usePathname } from "next/navigation";
 import { useUser } from "@/contexts/auth-context";
 import Navbar from "@/components/navbar";
+import Footer from "@/components/footer";
 
 const AUTH_ONLY_PATHS = ["/login", "/signup"];
 
@@ -34,9 +35,10 @@ export default function PublicLayout({
   }
 
   return (
-    <>
+    <div className="flex flex-col min-h-screen">
       <Navbar />
-      <main className="public">{children}</main>
-    </>
+      <main className="public flex-1 flex flex-col">{children}</main>
+      <Footer />
+    </div>
   );
 }

@@ -10,7 +10,7 @@ export default function Home() {
   const isAuthenticated = !loading && !!user;
 
   return (
-    <div className="h-[calc(100vh-68px)] flex flex-col overflow-hidden">
+    <div className="flex-1 flex flex-col overflow-hidden">
       <section className={styles.hero}>
         <div className={styles.glowPrimary} />
         <div className={styles.glowSecondary} />

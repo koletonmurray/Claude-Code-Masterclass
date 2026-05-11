@@ -1,0 +1,30 @@
+@reference "../../app/globals.css";
+
+.base {
+  font-family: "Space Mono", monospace;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.15rem 0.5rem;
+  border-radius: 3px;
+  white-space: nowrap;
+}
+
+.normal {
+  color: var(--color-primary);
+  background: rgba(152, 16, 250, 0.12);
+  border: 1px solid rgba(152, 16, 250, 0.24);
+}
+
+.urgent {
+  color: var(--color-warning);
+  background: rgba(245, 158, 11, 0.1);
+  border: 1px solid rgba(245, 158, 11, 0.28);
+}
+
+.critical {
+  color: var(--color-error);
+  background: rgba(255, 100, 103, 0.1);
+  border: 1px solid rgba(255, 100, 103, 0.28);
+}

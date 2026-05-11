@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Teko:wght@700&family=Space+Mono:wght@400;700&display=swap');
+@import "tailwindcss";
+
+/* theme colours */
+@theme {
+  --color-primary: #9810FA;
+  --color-secondary: #E60076;
+  --color-dark: #030712;
+  --color-light: #0A101D;
+  --color-lighter: #101828;
+  --color-success: #05DF72;
+  --color-error: #FF6467;
+  --color-warning: #f59e0b;
+  --color-heading: white;
+  --color-body: #99A1AF;
+  --font-sans: 'Inter', sans-serif;
+}
+
+/* typography */
+body {
+ @apply font-sans text-body bg-dark;
+}
+h1, h2, h3, h4 {
+  @apply text-heading;
+}
+
+/* generic layout styles */
+.public {
+  h1 {
+    @apply text-4xl;
+  }
+}
+svg.logo {
+  display: inline-block;
+}
+
+/* generic page styles */
+.page-content {
+  @apply my-4 mx-auto w-6xl min-w-2xl max-w-full;
+}
+.center-content {
+  @apply flex flex-col justify-center text-justify min-h-lvh;
+}
+.form-title {
+  @apply text-left text-4xl font-bold;
+}
+
+/* buttons */
+.btn {
+  @apply inline-flex items-center justify-center px-4 py-2 rounded-md text-sm font-semibold bg-primary text-white transition-opacity hover:opacity-80;
+}
+.btn-gradient {
+  @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-2xl text-sm font-semibold bg-gradient-to-r from-primary to-secondary text-white transition-opacity hover:opacity-80;
+}
+.btn-primary {
+  @apply inline-flex items-center justify-center gap-2 px-4 py-2 rounded-md text-sm font-semibold bg-primary text-white transition-opacity hover:opacity-80;
+}
+.btn-secondary {
+  @apply inline-flex items-center justify-center gap-2 px-4 py-2 rounded-md text-sm font-semibold bg-secondary text-white transition-opacity hover:opacity-80;
+}

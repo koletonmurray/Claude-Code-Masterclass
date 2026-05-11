@@ -1,0 +1,274 @@
+@reference "../../app/globals.css";
+
+/* ── Layout ──────────────────────────────────────────────── */
+
+.hero {
+  position: relative;
+  flex: 1;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  padding: 3rem 1.5rem;
+}
+
+.inner {
+  position: relative;
+  z-index: 2;
+  max-width: 72rem;
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 1rem;
+}
+
+/* ── Atmospheric background ──────────────────────────────── */
+
+.glowPrimary {
+  position: absolute;
+  top: -20%;
+  left: -12%;
+  width: 900px;
+  height: 900px;
+  background: radial-gradient(
+    ellipse,
+    rgba(152, 16, 250, 0.11) 0%,
+    transparent 62%
+  );
+  pointer-events: none;
+}
+
+.glowSecondary {
+  position: absolute;
+  bottom: -20%;
+  right: -8%;
+  width: 650px;
+  height: 650px;
+  background: radial-gradient(
+    ellipse,
+    rgba(230, 0, 118, 0.07) 0%,
+    transparent 62%
+  );
+  pointer-events: none;
+}
+
+.scanlines {
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 3px,
+    rgba(0, 0, 0, 0.04) 3px,
+    rgba(0, 0, 0, 0.04) 4px
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ── Corner brackets ─────────────────────────────────────── */
+
+.corner {
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  z-index: 2;
+}
+
+.tl {
+  top: 1.5rem;
+  left: 1.5rem;
+  border-top: 1px solid rgba(152, 16, 250, 0.3);
+  border-left: 1px solid rgba(152, 16, 250, 0.3);
+}
+
+.tr {
+  top: 1.5rem;
+  right: 1.5rem;
+  border-top: 1px solid rgba(152, 16, 250, 0.3);
+  border-right: 1px solid rgba(152, 16, 250, 0.3);
+}
+
+.bl {
+  bottom: 1.5rem;
+  left: 1.5rem;
+  border-bottom: 1px solid rgba(152, 16, 250, 0.3);
+  border-left: 1px solid rgba(152, 16, 250, 0.3);
+}
+
+.br {
+  bottom: 1.5rem;
+  right: 1.5rem;
+  border-bottom: 1px solid rgba(152, 16, 250, 0.3);
+  border-right: 1px solid rgba(152, 16, 250, 0.3);
+}
+
+/* ── Entrance animations ─────────────────────────────────── */
+
+.meta,
+.headline,
+.tagline,
+.description,
+.actions {
+  opacity: 0;
+  animation: fadeUp 0.55s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ── Meta label ──────────────────────────────────────────── */
+
+.meta {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 2rem;
+  font-family: "Space Mono", monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  color: var(--color-primary);
+  text-transform: uppercase;
+}
+
+.statusDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  flex-shrink: 0;
+  animation: pulse 2.2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+    box-shadow: 0 0 8px var(--color-primary);
+  }
+  50% {
+    opacity: 0.35;
+    box-shadow: none;
+  }
+}
+
+/* ── Clock logo ──────────────────────────────────────────── */
+
+.clockLogo {
+  display: inline-block;
+  width: 0.72em;
+  height: 0.72em;
+  vertical-align: middle;
+  margin-bottom: 0.12em;
+  margin-right: 1px;
+  color: white;
+  animation: slowSpin 6s linear infinite;
+}
+
+@keyframes slowSpin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ── Headline ────────────────────────────────────────────── */
+
+.headline {
+  font-family: "Teko", sans-serif;
+  font-weight: 700;
+  font-size: clamp(4.5rem, 14vw, 12rem);
+  line-height: 0.88;
+  letter-spacing: 0.02em;
+  background: linear-gradient(
+    140deg,
+    #ffffff 35%,
+    rgba(152, 16, 250, 0.55) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 1.75rem;
+}
+
+/* ── Tagline ─────────────────────────────────────────────── */
+
+.tagline {
+  font-family: "Space Mono", monospace;
+  font-size: 0.85rem;
+  color: var(--color-secondary);
+  letter-spacing: 0.08em;
+  margin-bottom: 1.25rem;
+}
+
+/* ── Description ─────────────────────────────────────────── */
+
+.description {
+  font-size: 1.05rem;
+  color: var(--color-body);
+  max-width: 36rem;
+  line-height: 1.8;
+  margin-bottom: 2.5rem;
+}
+
+/* ── Actions ─────────────────────────────────────────────── */
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.ctaBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Space Mono", monospace;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.9rem 2.25rem;
+  border-radius: 3px;
+  background: linear-gradient(
+    to right,
+    var(--color-primary),
+    var(--color-secondary)
+  );
+  color: white;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+  box-shadow: 0 0 24px rgba(152, 16, 250, 0.3);
+}
+
+.ctaBtn:hover {
+  opacity: 0.85;
+}
+
+.loginLink {
+  font-family: "Space Mono", monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  color: var(--color-body);
+  text-decoration: none;
+  text-transform: uppercase;
+  border-bottom: 1px solid rgba(153, 161, 175, 0.35);
+  padding-bottom: 2px;
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.loginLink:hover {
+  color: white;
+  border-color: rgba(255, 255, 255, 0.5);
+}

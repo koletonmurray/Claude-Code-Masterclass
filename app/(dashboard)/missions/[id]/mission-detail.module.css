@@ -1,0 +1,415 @@
+@reference "../../../globals.css";
+
+/* ── Page ─────────────────────────────────────────────────── */
+
+.page {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 2.5rem 1.25rem 5rem;
+}
+
+/* ── Header ───────────────────────────────────────────────── */
+
+.header {
+  position: relative;
+  margin-bottom: 1.5rem;
+  padding: 2rem;
+  background: var(--color-light);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.backRow {
+  margin-bottom: 0.875rem;
+}
+
+.headerBadge {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 0.75rem;
+}
+
+.backLink {
+  display: inline-flex;
+  align-items: center;
+  font-family: "Space Mono", monospace;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-body);
+  text-decoration: none;
+  border: 1px solid rgba(153, 161, 175, 0.2);
+  padding: 0.35rem 0.75rem;
+  border-radius: 3px;
+  transition:
+    color 0.2s,
+    border-color 0.2s;
+}
+
+.backLink:hover {
+  color: white;
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+.tagline {
+  font-family: "Space Mono", monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  margin-bottom: 0.4rem;
+}
+
+.pageTitle {
+  font-family: "Teko", sans-serif;
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+/* ── Corner brackets ──────────────────────────────────────── */
+
+.corner {
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  z-index: 2;
+}
+
+.tl {
+  top: 1.5rem;
+  left: 1.5rem;
+  border-top: 1px solid rgba(152, 16, 250, 0.3);
+  border-left: 1px solid rgba(152, 16, 250, 0.3);
+}
+
+.tr {
+  top: 1.5rem;
+  right: 1.5rem;
+  border-top: 1px solid rgba(152, 16, 250, 0.3);
+  border-right: 1px solid rgba(152, 16, 250, 0.3);
+}
+
+.bl {
+  bottom: 1.5rem;
+  left: 1.5rem;
+  border-bottom: 1px solid rgba(152, 16, 250, 0.3);
+  border-left: 1px solid rgba(152, 16, 250, 0.3);
+}
+
+.br {
+  bottom: 1.5rem;
+  right: 1.5rem;
+  border-bottom: 1px solid rgba(152, 16, 250, 0.3);
+  border-right: 1px solid rgba(152, 16, 250, 0.3);
+}
+
+/* ── Cards ────────────────────────────────────────────────── */
+
+.card {
+  position: relative;
+  background: var(--color-light);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 6px;
+  padding: 1.25rem 1.25rem 1.25rem 1.75rem;
+  margin-bottom: 1rem;
+  overflow: hidden;
+}
+
+.cardAccent {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(
+    to bottom,
+    var(--color-primary),
+    var(--color-secondary)
+  );
+}
+
+.cardLabel {
+  font-family: "Space Mono", monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  color: var(--color-body);
+  text-transform: uppercase;
+  margin-bottom: 0.6rem;
+}
+
+.cardBody {
+  font-size: 0.9rem;
+  color: var(--color-body);
+  line-height: 1.7;
+}
+
+/* ── Intel grid ───────────────────────────────────────────── */
+
+.intelGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem 1rem;
+}
+
+@media (max-width: 480px) {
+  .intelGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.intelItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.intelLabel {
+  font-family: "Space Mono", monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  color: var(--color-body);
+  text-transform: uppercase;
+}
+
+.intelValue {
+  font-family: "Space Mono", monospace;
+  font-size: 0.78rem;
+  color: white;
+  letter-spacing: 0.03em;
+}
+
+/* ── Status badge ─────────────────────────────────────────── */
+
+.statusBadge {
+  display: inline-block;
+  font-family: "Space Mono", monospace;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.6rem;
+  border-radius: 3px;
+}
+
+.badgeInProgress {
+  color: var(--color-primary);
+  background: rgba(152, 16, 250, 0.12);
+  border: 1px solid rgba(152, 16, 250, 0.24);
+}
+
+.badgeExpired {
+  color: var(--color-body);
+  background: rgba(153, 161, 175, 0.08);
+  border: 1px solid rgba(153, 161, 175, 0.18);
+}
+
+.badgeSuccess {
+  color: var(--color-success);
+  background: rgba(5, 223, 114, 0.1);
+  border: 1px solid rgba(5, 223, 114, 0.24);
+}
+
+.badgeFailure {
+  color: var(--color-error);
+  background: rgba(255, 100, 103, 0.1);
+  border: 1px solid rgba(255, 100, 103, 0.24);
+}
+
+/* ── Actions ──────────────────────────────────────────────── */
+
+.actions {
+  background: var(--color-lighter);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 6px;
+  padding: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.actionsLabel {
+  font-family: "Space Mono", monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  color: var(--color-body);
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+}
+
+.actionButtons {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.btnSuccess {
+  font-family: "Space Mono", monospace;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.65rem 1.5rem;
+  border-radius: 3px;
+  border: 1px solid rgba(5, 223, 114, 0.3);
+  background: rgba(5, 223, 114, 0.08);
+  color: var(--color-success);
+  cursor: pointer;
+  transition:
+    background 0.2s,
+    border-color 0.2s,
+    opacity 0.2s;
+}
+
+.btnSuccess:hover:not(:disabled) {
+  background: rgba(5, 223, 114, 0.14);
+  border-color: rgba(5, 223, 114, 0.5);
+}
+
+.btnSuccess:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.btnFailure {
+  font-family: "Space Mono", monospace;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.65rem 1.5rem;
+  border-radius: 3px;
+  border: 1px solid rgba(255, 100, 103, 0.3);
+  background: rgba(255, 100, 103, 0.06);
+  color: var(--color-error);
+  cursor: pointer;
+  transition:
+    background 0.2s,
+    border-color 0.2s,
+    opacity 0.2s;
+}
+
+.btnFailure:hover:not(:disabled) {
+  background: rgba(255, 100, 103, 0.12);
+  border-color: rgba(255, 100, 103, 0.5);
+}
+
+.btnFailure:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.actionError {
+  font-family: "Space Mono", monospace;
+  font-size: 0.65rem;
+  color: var(--color-error);
+  margin-top: 0.75rem;
+}
+
+/* ── Skeleton ─────────────────────────────────────────────── */
+
+.skeletonHeader {
+  border-radius: 6px;
+  height: 148px;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(
+    90deg,
+    var(--color-light) 25%,
+    var(--color-lighter) 50%,
+    var(--color-light) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.6s ease-in-out infinite;
+}
+
+.skeletonCard {
+  border-radius: 6px;
+  height: 120px;
+  margin-bottom: 1rem;
+  background: linear-gradient(
+    90deg,
+    var(--color-light) 25%,
+    var(--color-lighter) 50%,
+    var(--color-light) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.6s ease-in-out infinite;
+}
+
+.skeletonCardTall {
+  border-radius: 6px;
+  height: 180px;
+  margin-bottom: 1rem;
+  background: linear-gradient(
+    90deg,
+    var(--color-light) 25%,
+    var(--color-lighter) 50%,
+    var(--color-light) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.6s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* ── Error ────────────────────────────────────────────────── */
+
+.error {
+  font-family: "Space Mono", monospace;
+  font-size: 0.68rem;
+  color: var(--color-error);
+  padding: 0.75rem 1rem;
+  border: 1px solid rgba(255, 100, 103, 0.18);
+  border-radius: 4px;
+  background: rgba(255, 100, 103, 0.04);
+  margin-bottom: 1rem;
+}
+
+/* ── Not found ────────────────────────────────────────────── */
+
+.notFound {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 3rem 1.25rem;
+  background: var(--color-light);
+  border: 1px dashed rgba(255, 255, 255, 0.08);
+  border-radius: 6px;
+}
+
+.notFoundLabel {
+  font-family: "Space Mono", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  color: var(--color-body);
+  text-transform: uppercase;
+}
+
+/* ── Entrance animations ──────────────────────────────────── */
+
+.fadeUp {
+  opacity: 0;
+  animation: fadeUp 0.55s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

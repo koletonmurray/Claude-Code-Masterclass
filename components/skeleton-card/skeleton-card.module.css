@@ -1,0 +1,23 @@
+@reference "../../app/globals.css";
+
+.card {
+  border-radius: 6px;
+  height: 168px;
+  background: linear-gradient(
+    90deg,
+    var(--color-light) 25%,
+    var(--color-lighter) 50%,
+    var(--color-light) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.6s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}

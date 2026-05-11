@@ -1,0 +1,42 @@
+@reference "../../app/globals.css";
+
+.form {
+  @apply flex flex-col gap-4 w-full max-w-md mx-auto p-6;
+}
+
+.field {
+  @apply flex flex-col gap-1;
+}
+
+.label {
+  @apply text-sm font-medium text-heading;
+}
+
+.input {
+  @apply w-full px-3 py-2 rounded-md bg-light text-heading border border-lighter focus:border-primary focus:outline-none;
+}
+
+.input::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+  cursor: pointer;
+}
+
+.textarea {
+  @apply w-full px-3 py-2 rounded-md bg-light text-heading border border-lighter focus:border-primary focus:outline-none resize-none;
+}
+
+.select {
+  @apply w-full px-3 py-2 rounded-md bg-light text-heading border border-lighter focus:border-primary focus:outline-none cursor-pointer;
+}
+
+.hint {
+  @apply text-sm text-body;
+}
+
+.error {
+  @apply text-sm text-error;
+}
+
+.formError {
+  @apply text-sm text-error px-3 py-2 rounded-md border border-error bg-light;
+}

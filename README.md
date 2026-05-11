@@ -1,18 +1,27 @@
-# Pocket Heist
+# Pocket Mission
 
-Starter project for the Claude Code Masterclass.
+A mission management app built while working through the [Claude Code Masterclass](https://www.udemy.com/course/claude-code-master-class/) on Udemy.
+
+This project started as a fork of [iamshaunjp/Claude-Code-Masterclass](https://github.com/iamshaunjp/Claude-Code-Masterclass) — the official starter for the course — and evolved into a full feature build using Claude Code as the primary development tool.
+
+## Stack
+
+- Next.js 16, React 19, TypeScript
+- Tailwind CSS v4 with CSS Modules
+- Firebase Auth + Firestore
 
 ## Getting Started
 
-Install dependencies:
+Copy the environment template and fill in your Firebase credentials:
+
+```bash
+cp .env.example .env.local
+```
+
+Install dependencies and start the dev server:
 
 ```bash
 npm install
-```
-
-Run the development server:
-
-```bash
 npm run dev
 ```
 

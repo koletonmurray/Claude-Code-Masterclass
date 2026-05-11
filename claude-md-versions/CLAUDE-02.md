@@ -33,27 +33,14 @@ Feature work follows a three-step process:
 
 ## Architecture
 
-**Pocket Mission** is a Next.js 16 app (React 19, TypeScript, Tailwind CSS v4) backed by Firebase (Auth + Firestore).
+**Pocket Mission** is a Next.js 16 app (React 19, TypeScript, Tailwind CSS v4) with no backend yet — all data is currently static/mocked.
 
 ### Route groups
 
 Routes are split into two Next.js route groups, each with its own layout:
 
-- `app/(public)/` — unauthenticated pages (home splash, login, signup, preview). The home page (`/`) redirects logged-in users to `/missions`, others to `/login`.
-- `app/(dashboard)/` — authenticated pages guarded by `DashboardLayout`, which redirects to `/` if no user. Contains `missions/` (list), `missions/create/`, and `missions/[id]/` (detail).
-
-Both layouts wrap children in `flex flex-col min-h-screen` so the navbar, main, and footer always fit the viewport.
-
-### Auth & data layer
-
-- **`contexts/auth-context.tsx`** — `AuthProvider` wraps the app root and exposes `useUser()`, which returns `{ user: User | null, loading: boolean }`. Both layouts consume this to gate rendering.
-- **`lib/firebase/config.ts`** — initialises the Firebase app from env vars.
-- **`lib/firebase/firestore.ts`** — CRUD helpers: `getUsers`, `createMission`, `updateMissionStatus`.
-- **`lib/hooks/use-missions.ts`** — real-time Firestore listener returning missions filtered by `MissionMode` (`active` | `assigned` | `expired` | `completed`). Filtering on `finalStatus` is done client-side after the snapshot because Firestore can't compound-filter on deadline + finalStatus without a composite index.
-- **`lib/hooks/use-mission.ts`** — single-mission real-time listener.
-- **`lib/types/`** — `Mission` and `User` TypeScript interfaces. `Mission.deadline` is a Firestore `Timestamp`; convert with `.toDate()` when displaying.
-
-Path aliases: `@/*` → repo root, `@lib/*` → `./lib/`.
+- `app/(public)/` — unauthenticated pages (home splash, login, signup, preview). The home page (`/`) is intended as a redirect gate: logged-in users go to `/missions`, others to `/login`. Auth is not yet implemented.
+- `app/(dashboard)/` — authenticated mission management pages wrapped in a layout that renders `<Navbar>`. Contains `missions/` (list), `missions/create/`, and `missions/[id]/` (detail).
 
 ### Styling
 
@@ -61,14 +48,14 @@ Tailwind CSS v4 is configured via PostCSS (`postcss.config.mjs`). Custom theme t
 
 | Token | Value |
 |---|---|
-| `primary` | #9810FA (purple) |
-| `secondary` | #E60076 (pink) |
+| `primary` | #C27AFF (purple) |
+| `secondary` | #FB64B6 (pink) |
 | `dark` | #030712 (page bg) |
 | `light` / `lighter` | #0A101D / #101828 |
 | `success` / `error` | #05DF72 / #FF6467 |
 | `heading` / `body` | white / #99A1AF |
 
-Shared layout utilities (`.page-content`, `.center-content`, `.form-title`, `.btn`, `.btn-primary`, `.btn-secondary`, `.btn-gradient`) are defined in `globals.css`. `.btn-gradient` is the gradient variant (primary → secondary) used for prominent CTAs.
+Shared layout utilities (`.page-content`, `.center-content`, `.form-title`, `.btn`, `.btn-primary`, `.btn-secondary`, `.btn-gradient`) are defined in `globals.css`. `.btn-gradient` is the gradient variant (primary → secondary) used for prominent CTAs; `.btn-primary` and `.btn-secondary` are solid-color variants.
 
 ### Components
 
@@ -92,7 +79,7 @@ A Prettier hook runs automatically after every `Write` or `Edit` on `.ts`/`.tsx`
 
 ### Testing
 
-Tests live in `tests/` mirroring the source tree (`tests/components/`, `tests/hooks/`, `tests/contexts/`, `tests/layouts/`, `tests/lib/`). Vitest + Testing Library with jsdom. The `@/` path alias resolves to the repo root.
+Tests live in `tests/components/` and use Vitest + Testing Library with jsdom. The `@/` path alias resolves to the repo root (same as in app code).
 
 For interaction tests, use `@testing-library/user-event` (already installed):
 
